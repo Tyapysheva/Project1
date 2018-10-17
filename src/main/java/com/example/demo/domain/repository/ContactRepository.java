@@ -1,6 +1,6 @@
-package com.example.demo.repository;
+package com.example.demo.domain.repository;
 
-import com.example.demo.entity.Contact;
+import com.example.demo.domain.entity.Contact;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

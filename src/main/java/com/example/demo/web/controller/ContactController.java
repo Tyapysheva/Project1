@@ -1,7 +1,7 @@
-package com.example.demo.controller;
+package com.example.demo.web.controller;
 
-import com.example.demo.SomeContact;
-import com.example.demo.entity.Contact;
+import com.example.demo.service.ContactService;
+import com.example.demo.domain.entity.Contact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequestMapping("contact")
 public class ContactController {
     @Autowired
-    SomeContact n;
+    ContactService n;
     @GetMapping("all")
     public List<Contact> getAll(){
 

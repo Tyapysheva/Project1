@@ -1,9 +1,10 @@
-package com.example.demo.entity;
+package com.example.demo.domain.entity;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -11,8 +12,12 @@ import java.util.Set;
 public class Contact {
     @Id
     @Column(name = "id")
+    @Getter
+    @Setter
     private Integer id;
     @Column(name = "name")
+    @Getter
+    @Setter
     private String name;
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "contact_address",
@@ -24,25 +29,9 @@ public class Contact {
     }
 
     public Contact(Integer id, String name) {
-        setId(id);
-        setName(name);
+        id = id;
+        name = name;
     }
 
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
 }
