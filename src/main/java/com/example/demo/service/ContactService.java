@@ -27,11 +27,4 @@ public class ContactService {
         return c;
     }
 
-    @Transactional
-    public Optional select(Integer id) {
-
-        return Optional.of(repository.findById(id));
-    }
-
-
 }

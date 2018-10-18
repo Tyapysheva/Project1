@@ -7,19 +7,20 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
+
 @Entity
 @Table(name="address")
-public class Address{
+
+public class Address extends DomainEntity{
     @Id
-    @Column(name = "id_address")
-    @Getter@Setter
+    @Column(name = "id")
     private Integer id;
     @Column(name = "city")
-    @Getter@Setter private String city;
+    private String city;
     @Column(name = "index")
-    @Getter@Setter private Integer index;
-    @ManyToMany(mappedBy="add")
-    private Set<Contact> cont = new HashSet<Contact>();
-
-
+    private Integer index;
+    @ManyToMany(mappedBy="address")
+    private Set<Contact> contact = new HashSet<Contact>();
 }

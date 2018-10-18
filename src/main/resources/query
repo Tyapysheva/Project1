@@ -1,0 +1,8 @@
+INSERT into address(id, city, index)
+values (1,'Saratov',410080);
+INSERT into address(id, city, index)
+values (2,'Moskow',410080);
+INSERT into contact(id, name)
+values (1,'Lisa');
+INSERT into contact(id, name)
+values (2,'Misha');
