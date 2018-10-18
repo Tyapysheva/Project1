@@ -21,6 +21,7 @@ public class ContactController {
         List<Contact> p =n.selectRecords();
         for (int i=0;i<p.size();i++)
             System.out.println(p.get(i).getName());
+        4
 
     }
 
