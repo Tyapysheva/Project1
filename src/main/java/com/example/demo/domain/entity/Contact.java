@@ -2,7 +2,6 @@ package com.example.demo.domain.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.dom4j.tree.AbstractEntity;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -11,6 +10,11 @@ import java.util.Set;
 @Entity
 @Table(name = "contact")
 public class Contact extends DomainEntity {
+    @Id
+    @Column(name = "id")
+    @Getter
+    @Setter
+    private Integer id;
     @Column(name = "name")
     @Getter
     @Setter

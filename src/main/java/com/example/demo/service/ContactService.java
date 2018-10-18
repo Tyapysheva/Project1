@@ -14,18 +14,21 @@ import java.util.Optional;
 public class ContactService {
     @Autowired
     private ContactRepository repository;
+
     @Transactional
-    public List<Contact> selectRecords(){
+    public List<Contact> selectRecords() {
         List<Contact> c = repository.findAll();
         return c;
     }
+
     @Transactional
-    public Optional<Contact> selectRecordsById(Integer id){
+    public Optional<Contact> selectRecordsById(Integer id) {
         Optional<Contact> c = repository.findById(id);
         return c;
     }
+
     @Transactional
-    public Optional select(Integer id){
+    public Optional select(Integer id) {
 
         return Optional.of(repository.findById(id));
     }

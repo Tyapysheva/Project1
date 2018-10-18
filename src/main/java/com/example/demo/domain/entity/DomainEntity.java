@@ -6,12 +6,14 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-@Entity
-public class DomainEntity {
+@MappedSuperclass
+@Getter
+@Setter
+public abstract class DomainEntity {
     @Id
     @Column(name = "id")
-    @Getter
-    @Setter
+
     private Integer id;
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -14,14 +15,19 @@ import java.util.Optional;
 public class ContactController {
     @Autowired
     ContactService n;
-    @GetMapping("all")
-    public Iterable<Contact> getAll(){
-        return n.selectRecords();
-    }
-    @GetMapping("id")
-    public Optional<Contact> getById(){
 
-        return n.selectRecordsById(3);
+    @GetMapping("all")
+    public void getAll() {
+        List<Contact> p =n.selectRecords();
+        for (int i=0;i<p.size();i++)
+            System.out.println(p.get(i).getName());
+
+    }
+
+    @GetMapping("id")
+    public Optional<Contact> getById() {
+
+        return n.selectRecordsById(1);
     }
 
 }
