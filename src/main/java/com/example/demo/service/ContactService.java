@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.domain.entity.Contact;
 import com.example.demo.domain.repository.ContactRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +15,9 @@ public class ContactService {
     @Autowired
     private ContactRepository repository;
     @Transactional
-        public List<Contact> selectRecords(){
-            List<Contact> c = repository.findAll();
-            return c;
+    public List<Contact> selectRecords(){
+        List<Contact> c = repository.findAll();
+        return c;
     }
     @Transactional
     public Optional<Contact> selectRecordsById(Integer id){
