@@ -2,7 +2,6 @@ package com.example.demo.service;
 
 import com.example.demo.domain.entity.Contact;
 import com.example.demo.domain.repository.ContactRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +25,11 @@ public class ContactService {
         Optional<Contact> c = repository.findById(id);
         return c;
     }
+    @Transactional
+    public Contact addRecord (Contact entity){
+                return repository.save(entity);
+    }
+
+
 
 }
