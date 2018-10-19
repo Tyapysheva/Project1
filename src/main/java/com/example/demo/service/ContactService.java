@@ -26,8 +26,8 @@ public class ContactService {
         return c;
     }
     @Transactional
-    public Contact addRecord (Contact entity){
-                return repository.save(entity);
+    public Contact addRecord (Integer id,String name ){
+                return repository.save(new Contact(id, name));
     }
 
 

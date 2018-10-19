@@ -4,10 +4,7 @@ import com.example.demo.domain.entity.Contact;
 import com.example.demo.service.ContactService;
 import com.example.demo.web.dto.ContactDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +17,11 @@ public class ContactController {
 
     @Autowired
     ContactService n;
+
+    public ContactDTO convertFromContactToDTO(Contact con) {
+        ContactDTO cDTO = new ContactDTO(con.getId(), con.getName(),con.getAddress());
+        return cDTO;
+    }
 
     @GetMapping("all")
     public List<ContactDTO> getAll() {
@@ -35,22 +37,29 @@ public class ContactController {
     public ContactDTO getById(@PathVariable Integer id) {
         Optional<Contact> con = n.selectRecordsById(id);
         if (con.isPresent()) {
-            Contact contact = con.get();
-            return convertFromContactToDTO(contact);
+            return convertFromContactToDTO(con.get());
         }
         return null;
     }
 
-    public ContactDTO convertFromContactToDTO(Contact con) {
-        ContactDTO cDTO = new ContactDTO(con.getId(), con.getName());
-        return cDTO;
+    @GetMapping("addNewContact/{id}/{name}")
+    public ContactDTO addContact(@PathVariable Integer id, @PathVariable String name){
+        Contact con = n.addRecord(id, name);
+        return convertFromContactToDTO(con);
     }
 
-}
-//
-//    @GetMapping("save")
-//    public Contact addContact(ContactDTO cdto){
+
+//    @RequestMapping(value = {"/studentAdd"}, method = RequestMethod.POST, produces = "application/json")
+//    public @ResponseBody Contact add(@RequestParam("id")Integer id,
+//                                           @RequestParam("name")String name){
 //
 //    }
+
+
+
+
+}
+
+
 
 
