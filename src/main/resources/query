@@ -6,3 +6,7 @@ INSERT into contact(id, name)
 values (1,'Lisa');
 INSERT into contact(id, name)
 values (2,'Misha');
+Insert into contact_address(id,id_add)
+            values(1,1);
+Insert into contact_address(id,id_add)
+values(2,2);

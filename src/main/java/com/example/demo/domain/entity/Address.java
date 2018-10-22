@@ -4,8 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,5 +22,5 @@ public class Address extends DomainEntity{
     @Column(name = "index")
     private Integer index;
     @ManyToMany(mappedBy="address")
-    private Set<Contact> contact = new HashSet<Contact>();
+    private List<Contact> contact = new ArrayList<Contact>();
 }

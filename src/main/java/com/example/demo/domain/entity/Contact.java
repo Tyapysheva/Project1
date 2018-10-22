@@ -1,16 +1,12 @@
 package com.example.demo.domain.entity;
 
 
-
-
-
-
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 @Getter
 @Setter
 @Entity
@@ -25,7 +21,7 @@ public class Contact extends DomainEntity {
     @JoinTable(name = "contact_address",
             joinColumns = {@JoinColumn( name = "id")},
             inverseJoinColumns = {@JoinColumn(name = "id_add")})
-    private Set<Address> address = new HashSet<Address>();
+    private List<Address> address = new ArrayList<Address>();
 
     public Contact() {
     }

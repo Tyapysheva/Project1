@@ -29,7 +29,4 @@ public class ContactService {
     public Contact addRecord (Integer id,String name ){
                 return repository.save(new Contact(id, name));
     }
-
-
-
 }
